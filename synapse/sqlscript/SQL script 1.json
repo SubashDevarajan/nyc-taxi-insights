@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "CREATE EXTERNAL DATA SOURCE nyc_gold_source\nWITH (\n    LOCATION = 'abfss://nyctrips@nyctripsadls.dfs.core.windows.net',\n    CREDENTIAL = [nyc_trips_adls]\n);\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

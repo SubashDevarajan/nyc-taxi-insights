@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 4",
+	"properties": {
+		"content": {
+			"query": "\nCREATE VIEW dbo.nyc_taxi_trips1\nAS SELECT \n    trip_distance,\n    fare_amount,\n    total_amount,\n    trip_duration_minutes,\n    VendorID,\n    passenger_count,\n    RatecodeID,\n    store_and_fwd_flag,\n    PULocationID,\n    DOLocationID,\n    payment_type,\n    extra,\n    mta_tax,\n    tip_amount,\n    tolls_amount,\n    improvement_surcharge,\n    congestion_surcharge,\n    airport_fee,\n    ingest_time ,\n    [source],\n    pickup_datetime ,\n    dropoff_datetime ,\n    passenger_bucket,\n    ratecode_desc,\n    payment_desc,\n    taxi_type,\n    [year],\n    tip_percent,\n    avg_speed_kmph,\n    duration_bucket,\n    net_revenue,\n    anomaly_flag\nFROM\nOPENROWSET\n(\n\tBULK 'gold/trip-data/',\n\tDATA_SOURCE = 'nycadlssource',\n\tFORMAT = 'parquet'\n) AS nyctrips\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

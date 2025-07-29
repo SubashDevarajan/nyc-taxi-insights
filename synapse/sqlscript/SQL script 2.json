@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "select top 5 * from dbo.nyc_gold_data\n\n-- Connect using Synapse Admin or Owner\nCREATE LOGIN streamlit_user WITH PASSWORD = 'StrongPassword123!';\nCREATE USER streamlit_user FROM LOGIN streamlit_user;\nGRANT SELECT ON SCHEMA :: dbo TO streamlit_user;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
