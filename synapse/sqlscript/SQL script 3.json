@@ -2,7 +2,7 @@
 	"name": "SQL script 3",
 	"properties": {
 		"content": {
-			"query": "CREATE EXTERNAL FILE FORMAT DeltaFormat WITH\n(\n\tFORMAT_TYPE = DELTA\n)\n",
+			"query": "CREATE TABLE dbo.materialized_nyc_taxi\n(\n    trip_distance FLOAT,\n    fare_amount FLOAT,\n    total_amount FLOAT,\n    trip_duration_minutes FLOAT,\n    VendorID BIGINT,\n    passenger_count FLOAT,\n    RatecodeID FLOAT,\n    store_and_fwd_flag VARCHAR(10),\n    PULocationID BIGINT,\n    DOLocationID BIGINT,\n    payment_type BIGINT,\n    extra FLOAT,\n    mta_tax FLOAT,\n    tip_amount FLOAT,\n    tolls_amount FLOAT,\n    improvement_surcharge FLOAT,\n    congestion_surcharge FLOAT,\n    airport_fee FLOAT,\n    ingest_time DATETIME2,\n    source VARCHAR(50),\n    pickup_datetime DATETIME2,\n    dropoff_datetime DATETIME2,\n    passenger_bucket VARCHAR(20),\n    ratecode_desc VARCHAR(50),\n    payment_desc VARCHAR(50),\n    taxi_type VARCHAR(20),\n    year INT,\n    tip_percent FLOAT,\n    avg_speed_kmph FLOAT,\n    duration_bucket VARCHAR(20),\n    net_revenue FLOAT,\n    anomaly_flag BIGINT\n);\n\nCOPY INTO dbo.materialized_nyc_taxi\nFROM\n    'https://nyctripsadls.blob.core.windows.net/nyctrips/gold/trip-data/'\nWITH (\n    FILE_TYPE = 'PARQUET',\n    CREDENTIAL = (IDENTITY= 'Managed Identity')\n);\n",
 			"metadata": {
 				"language": "sql"
 			},
