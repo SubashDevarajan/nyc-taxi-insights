@@ -1,0 +1,21 @@
+{
+	"name": "DS_ADLS_PARQUET_RAW",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "syn-nyc-trips-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "raw",
+				"fileSystem": "nyctrips"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
